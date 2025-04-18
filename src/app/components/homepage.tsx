@@ -185,8 +185,7 @@ export const HomePage = () => {
                 {[
                   { icon: Github, link: content.contact.github },
                   { icon: Linkedin, link: content.contact.linkedin },
-                  { icon: Mail, link: `mailto:${content.contact.email}` },
-                ].map(({ icon: Icon }, index) => (
+                ].map(({ icon: Icon, link }, index) => (
                   <MotionButton
                     key={index}
                     whileHover={{ scale: 1.1 }}
@@ -195,7 +194,9 @@ export const HomePage = () => {
                     variant="ghost"
                     className="h-8 w-8 md:h-10 md:w-10 rounded-full text-white hover:bg-white/20 backdrop-blur-sm shadow-lg"
                   >
-                    <Icon className="h-4 w-4 md:h-5 md:w-5" />
+                    <a href={link} target="_blank" rel="noopener noreferrer">
+                      <Icon className="h-4 w-4 md:h-5 md:w-5" />
+                    </a>
                   </MotionButton>
                 ))}
               </div>
@@ -339,7 +340,29 @@ export const HomePage = () => {
           </div>
         </div>
       </MotionSection>
-      <div className="flex justify-between items-center mt-12 text-gray-500 dark:text-gray-400 text-sm"></div>
+
+      {/* Contact Section */}
+      <MotionSection
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="py-16 md:py-20 px-6 md:px-8 bg-gradient-to-r from-black via-gray-900 to-black"
+      >
+        <div className="max-w-6xl mx-auto text-center" id="contact">
+          <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4">
+            Get in Touch
+          </h2>
+          <p className="text-white/80 text-xl md:text-2xl mb-6">
+            Have any questions or want to collaborate? Reach out via email!
+          </p>
+          <a
+            href={`mailto:${content.contact.email}`}
+            className="text-lg md:text-xl font-bold text-indigo-400 hover:text-indigo-500 transition-colors duration-200"
+          >
+            {content.contact.email}
+          </a>
+        </div>
+      </MotionSection>
     </div>
   );
 };
