@@ -108,20 +108,6 @@ const content = {
 };
 
 export const HomePage = () => {
-  const handleEmailClick = () => {
-    const recipient = "dev.abdullah21@gmail.com"; // Replace with your email
-    const subject = "Hello from your website";
-    const body = "I wanted to reach out about...";
-
-    // Construct the mailto link
-    const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
-
-    // Open the user's default email client
-    window.location.href = mailtoLink;
-  };
-
   return (
     <div
       className="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 overflow-hidden"
@@ -200,7 +186,7 @@ export const HomePage = () => {
                   { icon: Github, link: content.contact.github },
                   { icon: Linkedin, link: content.contact.linkedin },
                   { icon: Mail, link: `mailto:${content.contact.email}` },
-                ].map(({ icon: Icon, link }, index) => (
+                ].map(({ icon: Icon }, index) => (
                   <MotionButton
                     key={index}
                     whileHover={{ scale: 1.1 }}
