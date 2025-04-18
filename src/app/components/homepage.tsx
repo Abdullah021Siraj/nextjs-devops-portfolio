@@ -6,7 +6,6 @@ import {
   FileText,
   Github,
   Linkedin,
-  Mail,
   MonitorCheck,
   Terminal,
 } from "lucide-react";
