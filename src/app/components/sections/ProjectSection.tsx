@@ -10,6 +10,8 @@ interface ProjectProps {
   description: string;
   github: string;
   stack: string[];
+  documentation: string;
+  preview?: string;
 }
 
 export const ProjectSection = ({
@@ -17,6 +19,8 @@ export const ProjectSection = ({
   description,
   github,
   stack,
+  documentation,
+  preview
 }: ProjectProps) => {
   return (
     <Card className="w-full max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl bg-white dark:bg-gray-800 shadow-lg rounded-lg p-4 md:p-6 flex flex-col justify-between">
@@ -44,6 +48,20 @@ export const ProjectSection = ({
           className="block text-blue-600 hover:text-blue-800 dark:hover:text-blue-400 mt-3 md:mt-4 text-sm md:text-base"
         >
           View on GitHub
+        </Link>
+        <Link
+          href={documentation}
+          rel="noopener noreferrer"
+          className="block text-blue-600 hover:text-blue-800 dark:hover:text-blue-400 mt-3 md:mt-4 text-sm md:text-base"
+        >
+          View Documentation
+        </Link>
+        <Link
+          href={preview}
+          rel="noopener noreferrer"
+          className="block text-blue-600 hover:text-blue-800 dark:hover:text-blue-400 mt-3 md:mt-4 text-sm md:text-base"
+        >
+          Preview
         </Link>
       </CardContent>
     </Card>
