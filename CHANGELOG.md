@@ -5,4 +5,5 @@
 - fix: update deploy.yml## [v1.1.0-20250424085957-1-g8fd6e36] - 2025-04-25
 - Update: README.md## [v1.1.0-20250425075014-1-g7d2c879] - 2025-04-27
 - feat: upgraded and updated information and UI## [v1.1.0-20250427203833-1-gc5b48ee] - 2025-04-28
-- feat: upgraded and updated information and UI
+- feat: upgraded and updated information and UI## [v1.1.0-20250428081810-1-g7d95182] - 2025-04-28
+- feat: changed UI & made performance better
