@@ -56,13 +56,15 @@ export const ProjectSection = ({
         >
           View Documentation
         </Link>
-        <Link
-          href={preview}
-          rel="noopener noreferrer"
-          className="block text-blue-600 hover:text-blue-800 dark:hover:text-blue-400 mt-3 md:mt-4 text-sm md:text-base"
-        >
-          Preview
-        </Link>
+        {preview && (
+          <Link
+            href={preview}
+            rel="noopener noreferrer"
+            className="block text-blue-600 hover:text-blue-800 dark:hover:text-blue-400 mt-3 md:mt-4 text-sm md:text-base"
+          >
+            Preview
+          </Link>
+        )}
       </CardContent>
     </Card>
   );

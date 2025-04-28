@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import {
-  ArrowRight,
   ArrowUpRight,
   Check,
   Cloud,
@@ -21,7 +20,6 @@ import {
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { TestimonialCard } from "./sections/TestimonialCard";
 import { MotionButton, MotionDiv, MotionSection } from "./motion-wrapper";
 import { useState } from "react";
 
@@ -129,16 +127,18 @@ const content = {
   testimonials: [
     {
       name: "Sarah Ali",
-      position: "Software Engineer at DevStu Inc.",
+      position: "Software Engineer",
       quote:
         "Abdullah’s understanding of CI/CD pipelines and infrastructure automation is top-notch. He made our development-to-deployment process smoother than ever.",
-    },
+      company: "DevStu Inc."
+      },
     {
       name: "Ahmed Malik",
-      position: "Team Lead at CloudDev",
+      position: "Team Lead",
       quote:
         "His ability to troubleshoot, optimize, and explain DevOps solutions clearly made a huge impact on our project’s delivery timelines.",
-    },
+      company: "CloudDev."
+      },
   ],
 };
 
@@ -150,11 +150,10 @@ export const HomePage = () => {
       .writeText(content.contact.email)
       .then(() => {
         setCopied(true);
-        setTimeout(() => setCopied(false), 2000); // Reset after 2 seconds
+        setTimeout(() => setCopied(false), 2000); 
       })
       .catch((err) => {
         console.error("Failed to copy email: ", err);
-        // Fallback to mailto if clipboard fails
         window.location.href = `mailto:${content.contact.email}`;
       });
   };
@@ -490,11 +489,6 @@ export const HomePage = () => {
                       {cert.organization}
                     </p>
 
-                    {cert.date && (
-                      <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
-                        Earned {cert.date}
-                      </p>
-                    )}
                   </div>
 
                   <div className="px-6 py-4 bg-gray-50 dark:bg-gray-700/20 border-t border-gray-100 dark:border-gray-700 text-center">
@@ -584,7 +578,7 @@ export const HomePage = () => {
                     </div>
 
                     <p className="text-gray-600 dark:text-gray-300 text-lg italic relative z-10">
-                      "{testi.quote}"
+                      {testi.quote}
                     </p>
                   </div>
 
@@ -648,14 +642,14 @@ export const HomePage = () => {
             </div>
 
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Let's Build Something{" "}
+              Lets Build Something{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-blue-400">
                 Amazing
               </span>
             </h2>
 
             <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-10">
-              Whether you have a project in mind or just want to connect, I'd
+              Whether you have a project in mind or just want to connect, I would
               love to hear from you.
             </p>
 

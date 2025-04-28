@@ -18,7 +18,6 @@ export const TestimonialCard = ({
       </CardHeader>
       <CardContent className="text-gray-600 dark:text-gray-400 space-y-3 md:space-y-4">
         <p className="text-sm md:text-base">{position}</p>
-
         <p className="text-sm md:text-base">{quote}</p>
       </CardContent>
     </Card>
