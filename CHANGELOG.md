@@ -6,4 +6,5 @@
 - Update: README.md## [v1.1.0-20250425075014-1-g7d2c879] - 2025-04-27
 - feat: upgraded and updated information and UI## [v1.1.0-20250427203833-1-gc5b48ee] - 2025-04-28
 - feat: upgraded and updated information and UI## [v1.1.0-20250428081810-1-g7d95182] - 2025-04-28
-- feat: changed UI & made performance better
+- feat: changed UI & made performance better## [v1.1.0-20250428153522-1-ge4cb3f9] - 2025-07-11
+- Update content.ts
