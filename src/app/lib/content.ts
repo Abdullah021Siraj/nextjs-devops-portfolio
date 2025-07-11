@@ -98,7 +98,7 @@ export const content = {
       github: "https://github.com/abdullah021siraj",
       linkedin: "https://linkedin.com/in/abdullah021siraj",
       resume:
-        "https://docs.google.com/document/d/1hyCr2I1_KyZlqo9ot1s6Onsn_rq0AtEtsCv7Mvfyuu8/export?format=pdf",
+        "https://docs.google.com/document/d/1xym82FQvCXum2leRmRxNaW85IP4-D5t12kZo9tg2zW4/edit?usp=sharing",
     },
   
     testimonials: [
