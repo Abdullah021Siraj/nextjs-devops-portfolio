@@ -1,36 +1,41 @@
 "use client";
 
-import { useState, useEffect, useCallback } from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { 
-  Terminal, 
-  FileText, 
-  Github, 
-  Linkedin, 
+import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import {
+  Terminal,
+  FileText,
+  Github,
+  Linkedin,
   Mail,
-  Check
-} from 'lucide-react';
+  Check,
+} from "lucide-react";
 
 // Import UI components properly
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 // Lazy load content-heavy sections
-import dynamic from 'next/dynamic';
-const ProjectsSection = dynamic(() => import('./components/ProjectSection'), {
-  ssr: false
+import dynamic from "next/dynamic";
+const ProjectsSection = dynamic(() => import("./components/ProjectSection"), {
+  ssr: false,
 });
-const CertificationsSection = dynamic(() => import('./components/CertificateSection'), {
-  ssr: false
-});
-const TestimonialsSection = dynamic(() => import('./components/TestimonialSection'), {
-  ssr: false
-});
+const CertificationsSection = dynamic(
+  () => import("./components/CertificateSection"),
+  {
+    ssr: false,
+  }
+);
+const TestimonialsSection = dynamic(
+  () => import("./components/TestimonialSection"),
+  {
+    ssr: false,
+  }
+);
 
 // Move content to a separate file for better organization
-import { content } from './lib/content';
+import { content } from "./lib/content";
 
 // Custom hook for mobile detection
 const useIsMobile = () => {
@@ -39,23 +44,23 @@ const useIsMobile = () => {
   useEffect(() => {
     // Function to check if the screen is mobile-sized
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    
+
     // Initial check
     checkMobile();
-    
+
     // Add event listener with debouncing
     let timeoutId: string | number | NodeJS.Timeout | undefined;
     const handleResize = () => {
       clearTimeout(timeoutId);
       timeoutId = setTimeout(checkMobile, 100);
     };
-    
-    window.addEventListener('resize', handleResize);
-    
+
+    window.addEventListener("resize", handleResize);
+
     // Cleanup
     return () => {
       clearTimeout(timeoutId);
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -84,19 +89,19 @@ export default function HomePage() {
   const animations = {
     fadeIn: {
       hidden: { opacity: 0 },
-      visible: { opacity: 1 }
+      visible: { opacity: 1 },
     },
     slideInFromLeft: {
       hidden: isMobile ? { opacity: 0 } : { x: -50, opacity: 0 },
-      visible: { x: 0, opacity: 1 }
+      visible: { x: 0, opacity: 1 },
     },
     slideInFromRight: {
       hidden: isMobile ? { opacity: 0 } : { x: 50, opacity: 0 },
-      visible: { x: 0, opacity: 1 }
+      visible: { x: 0, opacity: 1 },
     },
     hoverEffect: isMobile ? {} : { y: -5 },
     tapEffect: isMobile ? {} : { scale: 0.95 },
-    hoverScale: isMobile ? {} : { scale: 1.05 }
+    hoverScale: isMobile ? {} : { scale: 1.05 },
   };
 
   return (
@@ -218,40 +223,22 @@ export default function HomePage() {
                   className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
                 />
               </div>
-
-              <Card className="mt-6 md:mt-8 bg-white/10 border-white/20 backdrop-blur-sm text-white p-4 md:p-6 w-full max-w-xs sm:max-w-sm md:max-w-md hover:bg-white/20 transition-all duration-300 shadow-xl">
-                <div className="grid grid-cols-3 gap-2 md:gap-4 text-center">
-                  {content.herosection.stats.map((stat) => (
-                    <div key={stat.label} className="flex flex-col">
-                      <span className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-white to-indigo-200 bg-clip-text text-transparent">
-                        {stat.value}
-                      </span>
-                      <span className="text-xs md:text-sm text-white/70">
-                        {stat.label}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </Card>
             </motion.div>
           </div>
         </div>
       </motion.section>
 
       {/* Projects Section - Lazy loaded */}
-      
-        <ProjectsSection isMobile={isMobile} animations={animations} />
-     
+
+      <ProjectsSection isMobile={isMobile} animations={animations} />
 
       {/* Certifications Section - Lazy loaded */}
-      
-        <CertificationsSection isMobile={isMobile} animations={animations} />
-     
+
+      <CertificationsSection isMobile={isMobile} animations={animations} />
 
       {/* Testimonials Section - Lazy loaded */}
-      
-        <TestimonialsSection isMobile={isMobile} animations={animations} />
-     
+
+      <TestimonialsSection isMobile={isMobile} animations={animations} />
 
       {/* Contact Section */}
       <motion.section
@@ -292,8 +279,8 @@ export default function HomePage() {
             </h2>
 
             <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-10">
-              Whether you have a project in mind or just want to connect, I would
-              love to hear from you.
+              Whether you have a project in mind or just want to connect, I
+              would love to hear from you.
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto">
@@ -337,7 +324,7 @@ export default function HomePage() {
               </motion.div>
             </div>
 
-            <div className="mt-16 pt-8 border-t border-gray-800">
+            <div className="mt-10 border-t border-gray-800">
               <div className="flex justify-center space-x-6">
                 {[
                   { icon: Github, link: content.contact.github },

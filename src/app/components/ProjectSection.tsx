@@ -1,14 +1,19 @@
 // ProjectsSection.jsx
 "use client";
 
-import { motion } from 'framer-motion';
-import { Github, FileText, ExternalLink } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { content } from '../lib/content';
+import { motion } from "framer-motion";
+import { Github, FileText, ExternalLink } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { content } from "../lib/content";
 
-export default function ProjectsSection({  animations }: { isMobile: boolean, animations: Record<string, any> }) {
+export default function ProjectsSection({
+  animations,
+}: {
+  isMobile: boolean;
+  animations: Record<string, any>;
+}) {
   return (
     <motion.section
       initial="hidden"
@@ -16,7 +21,7 @@ export default function ProjectsSection({  animations }: { isMobile: boolean, an
       viewport={{ once: true, margin: "-100px" }}
       variants={animations.fadeIn}
       transition={{ duration: 0.6 }}
-      className="py-24 md:py-32 px-6 sm:px-8 bg-white dark:bg-gray-900"
+      className="py-24 md:py-32 px-6 sm:px-8 bg-white"
       id="projects"
     >
       <div className="max-w-7xl mx-auto">
@@ -28,11 +33,12 @@ export default function ProjectsSection({  animations }: { isMobile: boolean, an
           transition={{ delay: 0.2 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
-            Featured <span className="text-indigo-600 dark:text-indigo-400">Projects</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 ">
+            Featured <span className="text-indigo-600 ">Projects</span>
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Here are some of the recent projects I've worked on, showcasing my skills in DevOps, cloud architecture, and infrastructure automation.
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Here are some of the recent projects I've worked on, showcasing my
+            skills in DevOps, cloud architecture, and infrastructure automation.
           </p>
         </motion.div>
 
@@ -47,36 +53,41 @@ export default function ProjectsSection({  animations }: { isMobile: boolean, an
               transition={{ delay: index * 0.1 + 0.3 }}
               whileHover={animations.hoverEffect}
             >
-              <Card className="h-full overflow-hidden border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-800/50 hover:shadow-xl transition-all duration-300">
+              <Card className="h-full overflow-hidden border border-gray-200 bg-white  hover:shadow-xl transition-all duration-300">
                 <div className="p-6 md:p-8">
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.stack.slice(0, 4).map((tech) => (
-                      <Badge key={tech} variant="outline" className="bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border-indigo-200 dark:border-indigo-800/50">
+                      <Badge
+                        key={tech}
+                        variant="outline"
+                        className="bg-indigo-50  text-indigo-600  border-indigo-200 "
+                      >
                         {tech}
                       </Badge>
                     ))}
                     {project.stack.length > 4 && (
-                      <Badge variant="outline" className="bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-gray-700">
+                      <Badge
+                        variant="outline"
+                        className="bg-gray-50  text-gray-500  border-gray-200 "
+                      >
                         +{project.stack.length - 4} more
                       </Badge>
                     )}
                   </div>
-                  
-                  <h3 className="text-xl md:text-2xl font-bold mb-3 text-gray-900 dark:text-white">
+
+                  <h3 className="text-xl md:text-2xl font-bold mb-3 text-gray-900">
                     {project.title}
                   </h3>
-                  
-                  <p className="text-gray-600 dark:text-gray-300 mb-6">
-                    {project.description}
-                  </p>
-                  
+
+                  <p className="text-gray-600 mb-6">{project.description}</p>
+
                   <div className="flex flex-wrap gap-3 mt-auto">
                     {project.github && (
                       <motion.div whileTap={animations.tapEffect}>
                         <Button variant="outline" size="sm" className="gap-2">
-                          <a 
-                            href={project.github} 
-                            target="_blank" 
+                          <a
+                            href={project.github}
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center"
                           >
@@ -86,13 +97,13 @@ export default function ProjectsSection({  animations }: { isMobile: boolean, an
                         </Button>
                       </motion.div>
                     )}
-                    
+
                     {project.documentation && (
                       <motion.div whileTap={animations.tapEffect}>
                         <Button variant="outline" size="sm" className="gap-2">
-                          <a 
-                            href={project.documentation} 
-                            target="_blank" 
+                          <a
+                            href={project.documentation}
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center"
                           >
@@ -102,13 +113,13 @@ export default function ProjectsSection({  animations }: { isMobile: boolean, an
                         </Button>
                       </motion.div>
                     )}
-                    
+
                     {project.preview && project.preview !== "/" && (
                       <motion.div whileTap={animations.tapEffect}>
                         <Button variant="outline" size="sm" className="gap-2">
-                          <a 
-                            href={project.preview} 
-                            target="_blank" 
+                          <a
+                            href={project.preview}
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center"
                           >
@@ -119,10 +130,10 @@ export default function ProjectsSection({  animations }: { isMobile: boolean, an
                       </motion.div>
                     )}
                   </div>
-                  
+
                   {project.highlight && (
-                    <div className="mt-6 pt-4 border-t border-gray-100 dark:border-gray-800">
-                      <p className="text-sm font-medium text-indigo-600 dark:text-indigo-400">
+                    <div className="mt-6 pt-4 border-t border-gray-100">
+                      <p className="text-sm font-medium text-indigo-600">
                         {project.highlight}
                       </p>
                     </div>
